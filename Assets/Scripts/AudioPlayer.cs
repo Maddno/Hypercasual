@@ -14,6 +14,10 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip destroyedClip;
     [SerializeField][Range(0f, 1f)] float destroyedVolume = 1f;
 
+    [Header("NewBestResult")]
+    [SerializeField] AudioClip newBestClip;
+    [SerializeField][Range(0f, 1f)] float newBestVolume = 1f;
+
     static AudioPlayer instance;
 
     void Awake()
@@ -48,6 +52,11 @@ public class AudioPlayer : MonoBehaviour
     public void PlayDestroyedClip()
     {
         PlayClip(destroyedClip, destroyedVolume);
+    }
+
+    public void PlayNewBestClip()
+    {
+        PlayClip(newBestClip, newBestVolume);
     }
 
     void PlayClip(AudioClip clip, float volume)

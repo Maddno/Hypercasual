@@ -1,5 +1,5 @@
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerActions : MonoBehaviour
 {
@@ -9,11 +9,14 @@ public class PlayerActions : MonoBehaviour
     LevelManager levelManager;
     AudioPlayer audioPlayer;
 
+    
+
     private void Awake()
     {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         levelManager = FindObjectOfType<LevelManager>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

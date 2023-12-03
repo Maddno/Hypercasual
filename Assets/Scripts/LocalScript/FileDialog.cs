@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using SFB;
 using System.Collections;
 using UnityEngine;
@@ -11,10 +12,14 @@ public class FileDialog : MonoBehaviour
 
     IEnumerator ShowDialog(System.Action<string> callback)
     {
-        string path = StandaloneFileBrowser.OpenFilePanel("Выберите изображение", "", "png,jpg,jpeg", false)[0];
+        string[] paths = StandaloneFileBrowser.OpenFilePanel("Выберите изображение", "", "png,jpg,jpeg", false);
 
-        callback.Invoke(path);
+        if (paths.Length > 0 && !string.IsNullOrEmpty(paths[0]))
+        {
+            callback.Invoke(paths[0]);
+        }
 
         yield return null;
     }
 }
+#endif

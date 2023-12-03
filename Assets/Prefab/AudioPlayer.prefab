@@ -51,8 +51,8 @@ MonoBehaviour:
   damageVolume: 0.7
   destroyedClip: {fileID: 8300000, guid: 5fcf3fd1bcfe61d40a20bc9aa2aa37dc, type: 3}
   destroyedVolume: 1
-  clickClip: {fileID: 8300000, guid: b48a9a09fa8fb5749a69017480a8da08, type: 3}
-  clickVolume: 1
+  newBestClip: {fileID: 8300000, guid: 689cd2509e942124985121ba05f9c6d5, type: 3}
+  newBestVolume: 1
 --- !u!82 &8207318747578415031
 AudioSource:
   m_ObjectHideFlags: 0

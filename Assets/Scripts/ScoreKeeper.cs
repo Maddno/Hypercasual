@@ -4,6 +4,9 @@ public class ScoreKeeper : MonoBehaviour
 {
     private static ScoreKeeper instance;
 
+    public const string PreviousBestSaves = "PreviousBestScore";
+    public const string BestScoreSaves = "BestScore";
+
     private void Awake()
     {
         ManageSingleton();
@@ -24,23 +27,19 @@ public class ScoreKeeper : MonoBehaviour
     }
 
     private int currentScore;
+    private int previousBest;
     private int bestScore;
 
     public int GetScore()
     {
+
         return currentScore;
     }
 
     public int GetBestScore()
     {
-        if(currentScore > bestScore)
-        {
-            PlayerPrefs.SetInt("saveScore", currentScore);
-            PlayerPrefs.Save();
-        }
-
-        bestScore = PlayerPrefs.GetInt("saveScore");
-
+        bestScore = PlayerPrefs.GetInt(BestScoreSaves);
+        
         return bestScore;
     }
 
@@ -49,10 +48,19 @@ public class ScoreKeeper : MonoBehaviour
         currentScore++;
         
         Mathf.Clamp(currentScore, 0, int.MaxValue);
+
+        if (currentScore > bestScore)
+        {
+            PlayerPrefs.SetInt(BestScoreSaves, currentScore);
+            
+            PlayerPrefs.Save();
+        }
     }
 
     public void ResetScore()
     {
         currentScore = 0;
+        
+
     }
 }

@@ -29,6 +29,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 using System.Runtime.InteropServices;
+using UnityEngine;
 
 public class GetImage {
 
